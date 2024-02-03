@@ -6,7 +6,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && apt-get update && apt-get install -
   curl \
   ca-certificates \
   && rm -rf /var/lib/apt/lists/*
-ADD gotify-app /usr/src/app/gotify/
+ADD app/gotify-app /usr/src/app/gotify/
 HEALTHCHECK --interval=30s --timeout=5s --start-period=5s CMD curl --fail http://localhost:$GOTIFY_SERVER_PORT/health || exit 1
 EXPOSE 80
 ENTRYPOINT ["./gotify-app"]
